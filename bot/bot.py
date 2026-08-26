@@ -7,9 +7,9 @@ load_dotenv()
 
 # Retrieve the OpenRouter API key securely
 
-# api_key = "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"
+api_key = ""
 
-api_key = os.getenv("OPENROUTER_API_KEY")
+# api_key = os.getenv("OPENROUTER_API_KEY")
 # Ensure the API key is present
 if not api_key:
     raise ValueError("Missing OpenRouter API key in .env!")
@@ -23,7 +23,7 @@ client = OpenAI(
 def get_bot_response(user_input):
     try:
         completion = client.chat.completions.create(
-            model="deepseek/deepseek-chat-v3-0324",
+            model="deepseek/deepseek-v3-base:free",
             messages=[
                 {"role": "system", "content": "You are a helpful and concise assistant. Always respond briefly and clearly in 3–5 sentences max."},
 
